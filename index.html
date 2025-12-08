@@ -58,6 +58,14 @@
                 <input type="number" id="periode" class="input-field" placeholder="Tahun" value="10">
             </div>
 
+            <div class="input-wrapper">
+                <label for="waktuSetoran"><i class="fa-solid fa-clock"></i>Skema Setoran</label>
+                <select id="waktuSetoran" class="input-field">
+                    <option value="akhir">Akhir Bulan</option>
+                    <option value="awal">Awal Bulan</option>
+                </select>
+            </div>
+
             <button id="calculateBtn" class="btn-calculate primary">
                 <i class="fa-solid fa-magnifying-glass-chart"></i> Hitung
             </button>
@@ -71,12 +79,13 @@
                 <!-- Card 1: Total Setor -->
                 <div class="result-card">
                     <div class="card-header-visual pink">
-                        <div class="location-badge"><i class="fa-solid fa-piggy-bank"></i> Modal</div>
+                        <div class="location-badge" style="color: #f79292;"><i class="fa-solid fa-piggy-bank"></i> Modal
+                        </div>
                         <i class="fa-solid fa-money-bill-transfer card-icon-large"></i>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">Total Uang Disetor</h3>
-                        <div class="card-price" id="totalSetor">Rp 0</div>
+                        <div class="card-price" style="color: #3b82f6;" id="totalSetor">Rp 0</div>
                     </div>
                 </div>
 
