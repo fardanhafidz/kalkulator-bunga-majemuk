@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Investasi Ajaib</title>
+    <!-- Use Font Awesome for Icons similar to the reference -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="header-avatars">
+                <div class="avatar-container">
+                    <img src="assets/fardan.png" alt="Fardan" class="mascot-avatar">
+                    <span class="tooltip">Fardan</span>
+                </div>
+                <div class="avatar-container">
+                    <img src="assets/naja.png" alt="Naja" class="mascot-avatar">
+                    <span class="tooltip">Naja</span>
+                </div>
+                <div class="avatar-container">
+                    <img src="assets/elyn.png" alt="Elyn" class="mascot-avatar">
+                    <span class="tooltip">Elyn</span>
+                </div>
+            </div>
+            <h1 class="brand-title">Kalkulator Bunga Majemuk</h1>
+            <p class="brand-subtitle">Atur potensi masa depan keuanganmu dengan kekuatan bunga majemuk. Cepat, Mudah,
+                dan Transparan.</p>
+        </header>
+
+        <!-- Filter/Input Bar -->
+        <div class="search-bar">
+
+            <div class="input-wrapper">
+                <label for="modalAwal"><i class="fa-solid fa-wallet"></i> Modal Awal</label>
+                <input type="number" id="modalAwal" class="input-field" placeholder="Rp 0" value="10000000">
+            </div>
+
+            <div class="input-wrapper">
+                <label for="cicilan"><i class="fa-solid fa-coins"></i> Nabung/Bln</label>
+                <input type="number" id="cicilan" class="input-field" placeholder="Rp 0" value="1000000">
+            </div>
+
+            <div class="input-wrapper">
+                <label for="bunga"><i class="fa-solid fa-percent"></i> Bunga (Tahun)</label>
+                <input type="number" id="bunga" class="input-field" placeholder="%" value="5.15" step="0.01">
+            </div>
+
+            <div class="input-wrapper">
+                <label for="periode"><i class="fa-solid fa-calendar-days"></i> Durasi (Tahun)</label>
+                <input type="number" id="periode" class="input-field" placeholder="Tahun" value="10">
+            </div>
+
+            <button id="calculateBtn" class="btn-calculate primary">
+                <i class="fa-solid fa-magnifying-glass-chart"></i> Hitung
+            </button>
+        </div>
+
+        <!-- Results Container (Hidden by default) -->
+        <div id="resultsContainer" class="hidden">
+            <!-- Result Grid (Cards) -->
+            <div class="result-grid">
+
+                <!-- Card 1: Total Setor -->
+                <div class="result-card">
+                    <div class="card-header-visual pink">
+                        <div class="location-badge"><i class="fa-solid fa-piggy-bank"></i> Modal</div>
+                        <i class="fa-solid fa-money-bill-transfer card-icon-large"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Total Uang Disetor</h3>
+                        <div class="card-price" id="totalSetor">Rp 0</div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Total Bunga -->
+                <div class="result-card">
+                    <div class="card-header-visual blue">
+                        <div class="location-badge" style="color: #3b82f6;"><i class="fa-solid fa-chart-line"></i>
+                            Profit</div>
+                        <i class="fa-solid fa-plant-wilt card-icon-large"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Total Bunga (Cuan)</h3>
+                        <div class="card-price" id="totalBunga" style="color: #3b82f6;">Rp 0</div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Saldo Akhir -->
+                <div class="result-card">
+                    <div class="card-header-visual green">
+                        <div class="location-badge" style="color: #10b981;"><i class="fa-solid fa-vault"></i> Final
+                        </div>
+                        <i class="fa-solid fa-sack-dollar card-icon-large"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Saldo Akhir</h3>
+                        <div class="card-price" id="saldoAkhir" style="color: #10b981;">Rp 0</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Chart Section -->
+            <div class="full-width-card">
+                <div class="section-header">
+                    <h2 class="section-title">Grafik Pertumbuhan Aset</h2>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Table Section -->
+            <div class="full-width-card">
+                <div class="section-header">
+                    <h2 class="section-title">Rincian Tahunan</h2>
+                </div>
+                <div class="table-wrapper">
+                    <table id="resultTable">
+                        <thead>
+                            <tr>
+                                <th>Tahun</th>
+                                <th>Total Setor</th>
+                                <th>Bunga Tahun Ini</th>
+                                <th>Total Bunga</th>
+                                <th>Saldo Akhir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JS Populates -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
