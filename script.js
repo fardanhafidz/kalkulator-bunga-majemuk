@@ -35,7 +35,20 @@ function calculateAndVisualize() {
     const durasiTahun = parseFloat(periodeInput.value) || 0;
     const isAwalBulan = waktuSetoranInput.value === 'awal';
 
-    if (durasiTahun <= 0) {
+    // Validation
+    if (isNaN(modalAwal) || modalAwal < 0) {
+        alert('Modal awal tidak boleh kurang dari 0');
+        return;
+    }
+    if (isNaN(cicilanBulanan) || cicilanBulanan < 0) {
+        alert('Cicilan bulanan tidak boleh kurang dari 0');
+        return;
+    }
+    if (isNaN(bungaPersenThn) || bungaPersenThn < 0) {
+        alert('Bunga tahunan tidak boleh kurang dari 0');
+        return;
+    }
+    if (isNaN(durasiTahun) || durasiTahun <= 0) {
         alert('Durasi tahun harus lebih dari 0');
         return;
     }
